@@ -18,7 +18,7 @@ namespace KnapsackProblem
             Console.WriteLine(problem.ToString());
             Console.WriteLine("Enter the capacity of your backpack:" + Environment.NewLine);
             int capacity = int.Parse(Console.ReadLine());
-            Console.WriteLine(problem.run(capacity).ToString());
+            Console.WriteLine(problem.solve(capacity).ToString());
             Console.ReadLine();
         }
     }

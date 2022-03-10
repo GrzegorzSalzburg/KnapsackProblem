@@ -6,18 +6,35 @@ using System.Threading.Tasks;
 
 namespace KnapsackProblem
 {
+    public class Items
+    {
+        public int v;
+        public int w;
+
+        public Items(int v, int w)
+        {
+            this.v = v;
+            this.w = w;
+        }
+    }
+    
     public class Problem
     {
-        public List<int> numbers;
+        public List<Items> numbers;
 
         public Problem(int n, int seed)
         {
             Random r = new Random(seed);
-            numbers = new List<int>();
+            numbers = new List<Items>(n);
             for (int i = 0; i < n; i++)
             {
-                numbers.Add(r.Next(50));
+                numbers.Add(new Items(r.Next(29) + 1, r.Next(29) + 1));
             }
+        }
+
+        public object solve(int capacity)
+        {
+            throw new NotImplementedException();
         }
 
         public override string ToString()
@@ -26,10 +43,7 @@ namespace KnapsackProblem
             return str;
         }
 
-        internal object run(int capacity)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
  
