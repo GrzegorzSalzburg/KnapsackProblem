@@ -10,15 +10,17 @@ namespace KnapsackProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the number of items:" + Environment.NewLine);
+            Console.WriteLine("Enter the number of items:");
             int n =int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the seed:" + Environment.NewLine);
+            Console.WriteLine("Enter the seed:");
             int seed = int.Parse(Console.ReadLine());
+            Console.WriteLine(Environment.NewLine);
             Problem problem = new Problem(n, seed);
             Console.WriteLine(problem.ToString());
-            Console.WriteLine("Enter the capacity of your backpack:" + Environment.NewLine);
+            Console.WriteLine("Enter the capacity of your backpack:");
             int capacity = int.Parse(Console.ReadLine());
-            Console.WriteLine(problem.solve(capacity).ToString());
+            Console.WriteLine(Environment.NewLine);
+            problem.Solver(capacity, n);
             Console.ReadLine();
         }
     }

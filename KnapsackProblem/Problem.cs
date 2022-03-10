@@ -8,11 +8,13 @@ namespace KnapsackProblem
 {
     public class Items
     {
+        public int x;
         public int v;
         public int w;
 
-        public Items(int v, int w)
+        public Items(int x, int v, int w)
         {
+            this.x = x;
             this.v = v;
             this.w = w;
         }
@@ -28,21 +30,48 @@ namespace KnapsackProblem
             numbers = new List<Items>(n);
             for (int i = 0; i < n; i++)
             {
-                numbers.Add(new Items(r.Next(29) + 1, r.Next(29) + 1));
+                numbers.Add(new Items(i,r.Next(10) + 1, r.Next(10) + 1));
             }
         }
 
-        public object solve(int capacity)
+        public int[] Solver(int capacity, int n)
         {
-            throw new NotImplementedException();
+            int value = 0;
+            int weight = 0;
+            int index = 0;
+            int[] array = new int[capacity];
+         
+            for (int i = 0; i < n ; i++)
+            {
+                value += numbers[index].v;
+                weight += numbers[index].w;
+                if (weight <= capacity)
+                {
+                    Console.WriteLine(index);
+                    array[i] = index;
+                    numbers[index].x = index;
+                }
+                else
+                {
+                    weight = weight - numbers[index].w;
+                    value -= numbers[index].v;
+                }
+                index++;
+            }
+            Console.WriteLine(Environment.NewLine + "Final weight:");
+            Console.WriteLine(weight);
+            Console.WriteLine(Environment.NewLine + "Final value:");
+            Console.WriteLine(value);
+            return array;
         }
 
         public override string ToString()
         {
-            string str = string.Join(" ", numbers.ToArray());
-            return str;
-        }
+            string instance = "";
 
+            numbers.ForEach(item =>{instance += "nr:" + item.x + " v:" + item.v + "  w:" + item.w + Environment.NewLine;});
+            return instance;
+        }
 
     }
 }

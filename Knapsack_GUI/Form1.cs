@@ -35,8 +35,8 @@ namespace Knapsack_GUI
             Problem problem = new Problem(n, seed);
             tB_instance.Text = problem.ToString();
             int cap = int.Parse(tB_capacity.Text);
-            var res = problem.solve(cap);
-            tB_result.Text = res.ToString();
+            problem.Solver(cap, n);
+            //tB_result.Text 
         }
 
     }
