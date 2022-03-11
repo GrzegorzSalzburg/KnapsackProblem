@@ -39,7 +39,7 @@ namespace KnapsackProblem
             int value = 0;
             int weight = 0;
             int index = 0;
-            int[] array = new int[capacity];
+            int[] array = new int[n+2];
          
             for (int i = 0; i < n ; i++)
             {
@@ -58,6 +58,9 @@ namespace KnapsackProblem
                 }
                 index++;
             }
+
+            array[n] = weight;
+            array[n + 1] = value;
             Console.WriteLine(Environment.NewLine + "Final weight:");
             Console.WriteLine(weight);
             Console.WriteLine(Environment.NewLine + "Final value:");

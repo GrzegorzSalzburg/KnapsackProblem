@@ -35,8 +35,25 @@ namespace Knapsack_GUI
             Problem problem = new Problem(n, seed);
             tB_instance.Text = problem.ToString();
             int cap = int.Parse(tB_capacity.Text);
-            problem.Solver(cap, n);
-            //tB_result.Text 
+            
+            int[] sArray = problem.Solver(cap, n);
+
+            tB_result.Text = "IDs:" + Environment.NewLine;
+            for (int i = 0; i < n; i++)
+            {
+                if (sArray[i] == 0 && i!=0)
+                {
+                }
+                else
+                {
+                    tB_result.Text += sArray[i].ToString() + Environment.NewLine;
+                }
+            }
+            tB_result.Text += "Final weight:";
+            tB_result.Text += sArray[n].ToString() + Environment.NewLine;
+            tB_result.Text += "Final value:";
+            tB_result.Text += sArray[n+1].ToString();
+            //tB_result.Text += sArray.Length.ToString();
         }
 
     }
