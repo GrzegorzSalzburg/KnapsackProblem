@@ -38,11 +38,18 @@ namespace Knapsack_GUI
             
             int[] sArray = problem.Solver(cap, n);
 
-            tB_result.Text = "IDs:" + Environment.NewLine;
+            tB_result.Text = "ID numbers: " + Environment.NewLine;
             for (int i = 0; i < n; i++)
             {
-                if (sArray[i] == 0 && i!=0) //doesn't fit into backpack
+                /*W przypadku gdy element sie nie miesci, dostaje index elementu równy -1*/
+
+                if (sArray[i] == -1) 
                 {
+                    //if( i==0 && problem.numbers[0].w<=cap)
+                    //{
+                    //    tB_result.Text += 0 + Environment.NewLine;
+                    //}
+
                 }
                 else
                 {

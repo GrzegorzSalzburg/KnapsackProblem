@@ -55,6 +55,7 @@ namespace KnapsackProblem
                 {
                     weight = weight - numbers[index].w;
                     value -= numbers[index].v;
+                    array[i] = -1;
                 }
                 index++;
             }
