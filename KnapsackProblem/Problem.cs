@@ -30,7 +30,7 @@ namespace KnapsackProblem
             numbers = new List<Items>(n);
             for (int i = 0; i < n; i++)
             {
-                numbers.Add(new Items(i,r.Next(10) + 1, r.Next(10) + 1));
+                numbers.Add(new Items(i,r.Next(15) + 1, r.Next(15) + 1));
             }
         }
 

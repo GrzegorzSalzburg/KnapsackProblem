@@ -41,7 +41,7 @@ namespace Knapsack_GUI
             tB_result.Text = "IDs:" + Environment.NewLine;
             for (int i = 0; i < n; i++)
             {
-                if (sArray[i] == 0 && i!=0)
+                if (sArray[i] == 0 && i!=0) //doesn't fit into backpack
                 {
                 }
                 else
@@ -56,5 +56,15 @@ namespace Knapsack_GUI
             //tB_result.Text += sArray.Length.ToString();
         }
 
+        private void tB_items_TextChanged(object sender, EventArgs e)
+        {
+            TextBox box = sender as TextBox;
+            int x;
+            if(int.TryParse(box.Text, out x))
+            {
+                box.BackColor = Color.Green;
+            }
+            else box.BackColor= Color.Red;
+        }
     }
 }
